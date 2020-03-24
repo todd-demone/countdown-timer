@@ -75,4 +75,5 @@ function reset() {
   totalSeconds = (hours * 3600) + (minutes * 60) + seconds;
   calculateTimeRemaining();
   drawClockFace();
+  startButton.innerHTML = 'Start';
 }
