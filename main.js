@@ -3,6 +3,7 @@
 // last updated: 2020-03-24
 
 const startButton = document.getElementById('startButton');
+const resetButton = document.getElementById('resetButton');
 const hoursFace = document.getElementById('hoursFace');
 const minutesFace = document.getElementById('minutesFace');
 const secondsFace = document.getElementById('secondsFace');
@@ -21,13 +22,14 @@ calculateTimeRemaining();
 drawClockFace();
 
 // Click the start button to start the countdown
-startButton.addEventListener( 'click', startTimer );
+startButton.addEventListener( 'click', toggleTimer );
+resetButton.addEventListener( 'click', reset );
 
-function startTimer() {
-  if (!invokeInterval) {
+function toggleTimer() {
+  if (!invokeInterval) { // this block starts the timer
     invokeInterval = window.setInterval( tick, 1000 );
     startButton.innerHTML = 'Pause';
-  } else {
+  } else { // this block pauses the timer
     window.clearInterval(invokeInterval);
     invokeInterval = null;
     startButton.innerHTML = 'Start';
@@ -65,4 +67,12 @@ function drawClockFace() {
   hoursFace.innerHTML = `${hoursRemaining < 10 ? '0' : ''}${hoursRemaining}`;
   minutesFace.innerHTML = `${minutesRemaining < 10 ? '0' : ''}${minutesRemaining}`;
   secondsFace.innerHTML = `${secondsRemaining < 10 ? '0' : ''}${secondsRemaining}`;
+}
+
+function reset() {
+  window.clearInterval(invokeInterval);
+  invokeInterval = null;
+  totalSeconds = (hours * 3600) + (minutes * 60) + seconds;
+  calculateTimeRemaining();
+  drawClockFace();
 }
