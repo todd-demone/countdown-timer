@@ -20,9 +20,9 @@ const hoursStart = Math.floor( totalSeconds / 3600 );
 const minutesStart = Math.floor( (totalSeconds % 3600) / 60 );
 const secondsStart = ( totalSeconds % 3600 ) % 60 ;
 // update the View 
-hoursFace.innerHTML = ` ${hoursStart < 10 ? '0' : ''}${hoursStart}`;
-minutesFace.innerHTML = ` ${minutesStart < 10 ? '0' : ''}${minutesStart}`;
-secondsFace.innerHTML = ` ${secondsStart < 10 ? '0' : ''}${secondsStart}`;
+hoursFace.innerHTML = `${hoursStart < 10 ? '0' : ''}${hoursStart}`;
+minutesFace.innerHTML = `${minutesStart < 10 ? '0' : ''}${minutesStart}`;
+secondsFace.innerHTML = `${secondsStart < 10 ? '0' : ''}${secondsStart}`;
 
 // Click the start button to start the countdown
 startButton.addEventListener( 'click', startTimer );
@@ -55,16 +55,10 @@ function startTimer() {
     const secondsRemaining = ( totalSeconds % 3600 ) % 60 ;
     
     // View
-    hoursFace.innerHTML = ` ${hoursRemaining < 10 ? '0' : ''}${hoursRemaining}`;
-    minutesFace.innerHTML = ` ${minutesRemaining < 10 ? '0' : ''}${minutesRemaining}`;
-    secondsFace.innerHTML = ` ${secondsRemaining < 10 ? '0' : ''}${secondsRemaining}`;
+    hoursFace.innerHTML = `${hoursRemaining < 10 ? '0' : ''}${hoursRemaining}`;
+    minutesFace.innerHTML = `${minutesRemaining < 10 ? '0' : ''}${minutesRemaining}`;
+    secondsFace.innerHTML = `${secondsRemaining < 10 ? '0' : ''}${secondsRemaining}`;
     
     
   }
 }
-
-
-
-
-
-
