@@ -15,12 +15,11 @@ const seconds = parseInt(prompt('How many SECONDS do you want to add to the time
 
 let totalSeconds = (hours * 3600) + (minutes * 60) + seconds;
 
-// Set the initial start time on the clock
+// Set the initial start time on the clock 
 const hoursStart = Math.floor( totalSeconds / 3600 );
 const minutesStart = Math.floor( (totalSeconds % 3600) / 60 );
 const secondsStart = ( totalSeconds % 3600 ) % 60 ;
-
-// View
+// update the View 
 hoursFace.innerHTML = ` ${hoursStart < 10 ? '0' : ''}${hoursStart}`;
 minutesFace.innerHTML = ` ${minutesStart < 10 ? '0' : ''}${minutesStart}`;
 secondsFace.innerHTML = ` ${secondsStart < 10 ? '0' : ''}${secondsStart}`;
