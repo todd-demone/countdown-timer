@@ -10,31 +10,31 @@ const startButton = document.getElementById('startButton');
 startButton.addEventListener('click', startTimer);
 
 function startTimer() {
-  const invokeInterval = window.setInterval(removeASecond, 1000);
-  const secondsFace = document.getElementById('secondsFace');
-  const timesUp = document.getElementById('timesUp');
+  const invokeInterval = window.setInterval(tickTock, 1000);
   
-  function removeASecond() {
+  function tickTock() {
     if (seconds < 0) {
-      window.clearInterval(invokeInterval);
-      timesUp.innerHTML = "Time's up!";
-      return;
+      timesUp();
+    } else {
+      removeASecond();
     }
+  }
+
+  function timesUp() {
+    const timesUp = document.getElementById('timesUp');
+    window.clearInterval(invokeInterval);
+    timesUp.innerHTML = "Time's up!";
+  }
+
+  function removeASecond() {
+    const secondsFace = document.getElementById('secondsFace');
     secondsFace.innerHTML = seconds;
     seconds--;
   }
 }
 
-function timesUp() {
-  const timesUp = document.getElementById('timesUp');
-  window.clearInterval(invokeInterval);
-  timesUp.innerHTML = "Time's up!";
-}
 
-function removeASecond() {
-  const secondsFace = document.getElementById('secondsFace');
-  secondsFace.innerHTML = seconds;
-  seconds--;
-}
+
+
 
 
