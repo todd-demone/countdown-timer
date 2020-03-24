@@ -14,7 +14,7 @@ const seconds = parseInt(prompt('How many SECONDS do you want to add to the time
 
 let totalSeconds = (hours * 3600) + (minutes * 60) + seconds;
 let hoursRemaining, minutesRemaining, secondsRemaining;
-let invokeInterval = null;
+let invokeInterval = null; // this is where window.setInterval() will be stored. It needs to be global so I can toggle between 'Start' and 'Pause'
 
 // Set the initial start time on the clock 
 calculateTimeRemaining();
@@ -24,7 +24,6 @@ drawClockFace();
 startButton.addEventListener( 'click', startTimer );
 
 function startTimer() {
-  // REFACTOR
   if (!invokeInterval) {
     invokeInterval = window.setInterval( tick, 1000 );
     startButton.innerHTML = 'Pause';
@@ -33,36 +32,33 @@ function startTimer() {
     invokeInterval = null;
     startButton.innerHTML = 'Start';
   }
-  // END OF REFACTOR
-  // startButton.removeEventListener( 'click', startTimer ); // disable the "Click to Start" button so multiple clicks don't speed up the timer!
-  // const invokeInterval = window.setInterval( tick, 1000 ); // run the tick() function every 1000 milliseconds
-  
-  function tick() {
-    if (totalSeconds === 0) {
-      endTimer();
-    } else {
-      removeOneSecond();
-    }
-  }
+}
 
-  function endTimer() {
-    window.clearInterval(invokeInterval); // stops the recurring calls to tick()
-    // View
-    const timesUp = document.getElementById('timesUp');
-    timesUp.innerHTML = "Time's up!";
+function tick() {
+  if (totalSeconds === 0) {
+    endTimer();
+  } else {
+    removeOneSecond();
   }
+}
 
-  function removeOneSecond() {
-    totalSeconds--;
-    calculateTimeRemaining();
-    drawClockFace();
-  }
+function endTimer() {
+  window.clearInterval(invokeInterval); // stops the recurring calls to tick()
+  // View
+  const timesUp = document.getElementById('timesUp');
+  timesUp.innerHTML = "Time's up!";
+}
+
+function removeOneSecond() {
+  totalSeconds--;
+  calculateTimeRemaining();
+  drawClockFace();
 }
 
 function calculateTimeRemaining() {
   hoursRemaining = Math.floor( totalSeconds / 3600 );
   minutesRemaining = Math.floor( (totalSeconds % 3600) / 60 );
-  secondsRemaining = ( totalSeconds % 3600 ) % 60 ;
+  secondsRemaining = ( totalSeconds % 3600 ) % 60;
 }
 
 function drawClockFace() {
