@@ -47,7 +47,7 @@ function timerInput(e) {
 }
 
 function startPause() {
-  if (!invokeInterval) { // this block starts the timer
+  if (!invokeInterval && !clockArray.every(item => item === 0) ) { // this block starts the timer
     strToNums();
     invokeInterval = window.setInterval( tick, 1000 );
     startButton.innerHTML = 'Pause';
