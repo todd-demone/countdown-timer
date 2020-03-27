@@ -77,3 +77,43 @@ function reset() {
   drawClockFace();
   startButton.innerHTML = 'Start';
 }
+
+/***********************
+ * Edit Timer Board
+ * ********************/
+ 
+const clockArray = [0, 0, 0, 0, 0, 0];
+const clockFace = document.getElementById("clockFace");
+let clockString = "00h00m00s";
+const keys = document.querySelectorAll("#keyPad > .row > .key");
+keys.forEach(function (key) {
+  key.addEventListener("click", populateTimer);
+});
+let counter = 1;
+
+function populateTimer(e) {
+  if (counter === 6) {
+    keys.forEach(function (key) {
+      key.removeEventListener("click", populateTimer);
+    });
+  }
+  const digitInputted = e.target.innerText;
+  clockArray.push(digitInputted);
+  clockArray.shift();
+  clockString = "";
+  clockArray.forEach(function (digit, index) {
+    clockString += digit;
+    if (index === 1) {
+      clockString += "<span>h </span> ";
+    }
+    if (index === 3) {
+      clockString += "<span>m </span> ";
+    }
+    if (index === 5) {
+      clockString += "<span>s </span> ";
+    }
+  });
+  clockFace.innerHTML = clockString;
+  counter++;
+}
+
