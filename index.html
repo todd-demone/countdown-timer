@@ -6,17 +6,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Countdown Timer</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 </head>
 
 <body>
   <h1>Countdown Timer</h1>
-  <button id="startButton">Start</button>
-  <button id="resetButton">Reset</button>
-
-  <div class='clockface'>
-    <span id="hoursFace">00</span>:<span id="minutesFace">00</span>:<span id="secondsFace">00</span>
+  <div class='container'>
+    <div id='clockFace'>00h00m00s</div>
+    <div id='keyPad'>
+      <div class='row'>
+        <a href="#" class="key">7</a>
+        <a href="#" class="key">8</a>
+        <a href="#" class="key">9</a>
+      </div>
+      <div class='row'>
+        <a href="#" class="key">4</a>
+        <a href="#" class="key">5</a>
+        <a href="#" class="key">6</a>
+      </div>
+      <div class='row'>
+        <a href="#" class="key">1</a>
+        <a href="#" class="key">2</a>
+        <a href="#" class="key">3</a>
+      </div>
+      <div class='row'>
+        <a href="#" class="key">0</a>
+        <a href="#" id='startButton'>Start</a>
+        <a href="#" id='resetButton'>Reset</a>
+      </div>
+    </div>
   </div>
-  <p id="timesUp"></p>
 
   <script src="main.js"></script>
 </body>
