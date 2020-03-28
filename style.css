@@ -4,7 +4,7 @@ body {
 
 h1 {
   text-align: center;
-  font-size: 3rem;
+  font-size: 2.25rem;
   font-weight: 200; 
   margin-bottom: 1.5rem;
   color: #4285f4;
@@ -44,9 +44,9 @@ h1 {
   cursor: pointer;
   color: #202124;
   font-size: 24px;
-  line-height: 94px;
+  line-height: 82px;
   margin: 4px;
-  width: 96px;
+  width: 82px;
   text-decoration: none;
   text-align: center;
 }
@@ -62,9 +62,9 @@ h1 {
   display: inline-block;
   cursor: pointer;
   font-size: 24px;
-  line-height: 94px;
+  line-height: 82px;
   margin: 4px;
-  width: 96px;
+  width: 82px;
   text-decoration: none;
   text-align: center;
   background: #4285f4;
@@ -90,9 +90,9 @@ h1 {
   cursor: pointer;
   color: #202124;
   font-size: 24px;
-  line-height: 94px;
+  line-height: 82px;
   margin: 4px;
-  width: 96px;
+  width: 82px;
   text-decoration: none;
   text-align: center;
 }
