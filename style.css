@@ -44,8 +44,8 @@ h1 {
   color: #202124;
   font-size: 24px;
   line-height: 72px;
-  margin: 10px;
-  width: 72px;
+  margin: 4px;
+  width: 84px;
   text-decoration: none;
   text-align: center;
 }
@@ -60,10 +60,10 @@ h1 {
 #startButton {
   display: inline-block;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 24px;
   line-height: 72px;
-  margin: 10px;
-  width: 72px;
+  margin: 4px;
+  width: 84px;
   text-decoration: none;
   text-align: center;
   background: #4285f4;
@@ -88,10 +88,10 @@ h1 {
   display: inline-block;
   cursor: pointer;
   color: #202124;
-  font-size: 16px;
+  font-size: 24px;
   line-height: 72px;
-  margin: 10px;
-  width: 72px;
+  margin: 4px;
+  width: 84px;
   text-decoration: none;
   text-align: center;
 }
