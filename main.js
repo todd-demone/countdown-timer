@@ -4,7 +4,7 @@
 
 // Global variables 
 let clockArray = [0,0,0,0,0,0];
-let timeStr = `00h00m00s`;
+let timeStr = `00h 00m 00s`;
 let totalSecs, hrs, mins, secs;
 let counter = 1; // for timerInput()
 let invokeInterval = null; // where window.setInterval() is stored. It's global so I can toggle between 'Start' and 'Pause'
@@ -12,14 +12,12 @@ const clockFace = document.getElementById("clockFace");
 const keys = document.querySelectorAll("#keyPad > .row > .key");
 const startButton = document.getElementById('startButton');
 const resetButton = document.getElementById('resetButton');
-
 // Event Listeners
 keys.forEach(function (key) {
   key.addEventListener("click", timerInput);
 });
 startButton.addEventListener( 'click', startPause );
 resetButton.addEventListener( 'click', reset );
-
 // Functions
 function timerInput(e) {
   if (counter === 6) {
@@ -33,10 +31,10 @@ function timerInput(e) {
   clockArray.forEach(function (digit, index) {
     timeStr += digit;
     if (index === 1) {
-      timeStr += "h";
+      timeStr += "h ";
     }
     if (index === 3) {
-      timeStr += "m";
+      timeStr += "m ";
     }
     if (index === 5) {
       timeStr += "s";
@@ -45,7 +43,6 @@ function timerInput(e) {
   drawClock();
   counter++;
 }
-
 function startPause() {
   if (!invokeInterval && !clockArray.every(item => item === 0) ) { // this block starts the timer
     strToNums();
@@ -57,7 +54,6 @@ function startPause() {
     startButton.innerHTML = 'Start';
   }
 }
-
 function reset() {
   window.clearInterval(invokeInterval);
   invokeInterval = null;
@@ -66,18 +62,16 @@ function reset() {
       key.addEventListener("click", timerInput);
     });
   clockArray = [0,0,0,0,0,0];
-  timeStr = `00h00m00s`;
+  timeStr = `00h 00m 00s`;
   drawClock();
   startButton.innerHTML = 'Start';
 }
-
 function strToNums() {
   hrs = parseInt(timeStr[0] + timeStr[1]) * 3600;
-  mins = parseInt(timeStr[3] + timeStr[4]) * 60;
-  secs = parseInt(timeStr[6] + timeStr[7]);
+  mins = parseInt(timeStr[4] + timeStr[5]) * 60;
+  secs = parseInt(timeStr[8] + timeStr[9]);
   totalSecs = hrs + mins + secs;
 }
-
 function tick() {
   if (totalSecs === 0) {
     window.clearInterval(invokeInterval);
@@ -85,23 +79,18 @@ function tick() {
     removeOneSecond();
   }
 }
-
 function removeOneSecond() {
   totalSecs--;
   numsToStr();
   drawClock();
 }
-
 function numsToStr() {
   hrs = Math.floor( totalSecs / 3600 );
   mins = Math.floor( (totalSecs % 3600) / 60 );
   secs = ( totalSecs % 3600 ) % 60;
-  timeStr = `${hrs < 10 ? '0' + hrs : hrs}h${mins < 10 ? '0' + mins : mins}m${secs < 10 ? '0' + secs: secs}s`;
+  timeStr = `${hrs < 10 ? '0' + hrs : hrs}h ${mins < 10 ? '0' + mins : mins}m ${secs < 10 ? '0' + secs: secs}s`;
 }
-
 function drawClock() {
   clockFace.innerHTML = timeStr;
 }
-
-
 
