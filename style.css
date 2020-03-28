@@ -4,12 +4,13 @@ body {
 
 h1 {
   text-align: center;
-  font-weight: 200;
-  font-size: 2.25rem; 
+  font-size: 3rem;
+  font-weight: 200; 
   margin-bottom: 1.5rem;
+  color: #4285f4;
 }
 .container {
-  max-width: 300px;
+  max-width: 330px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -42,10 +43,10 @@ h1 {
   display: inline-block;
   cursor: pointer;
   color: #202124;
-  font-size: 14px;
-  line-height: 48px;
+  font-size: 24px;
+  line-height: 72px;
   margin: 4px;
-  width: 94px;
+  width: 106px;
   text-decoration: none;
   text-align: center;
 }
@@ -60,10 +61,10 @@ h1 {
 #startButton {
   display: inline-block;
   cursor: pointer;
-  font-size: 14px;
-  line-height: 48px;
+  font-size: 24px;
+  line-height: 72px;
   margin: 4px;
-  width: 94px;
+  width: 106px;
   text-decoration: none;
   text-align: center;
   background: #4285f4;
@@ -88,10 +89,10 @@ h1 {
   display: inline-block;
   cursor: pointer;
   color: #202124;
-  font-size: 14px;
-  line-height: 48px;
+  font-size: 24px;
+  line-height: 72px;
   margin: 4px;
-  width: 94px;
+  width: 106px;
   text-decoration: none;
   text-align: center;
 }
